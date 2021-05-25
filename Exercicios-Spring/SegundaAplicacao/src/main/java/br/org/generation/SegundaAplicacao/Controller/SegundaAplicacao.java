@@ -12,7 +12,7 @@ public class SegundaAplicacao {
 	@GetMapping
 	public String sayHabilidades() {
 		return "Objetivos de aprendizagem: Persistência"
-				+ ", orientação ao detalhe, mentalidade de crescimento!";
+				+ ", orientação ao detalhe e mentalidade de crescimento!";
 	}
 
 }
