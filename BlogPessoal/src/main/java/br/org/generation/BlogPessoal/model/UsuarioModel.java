@@ -63,5 +63,5 @@ public class UsuarioModel {
 		this.senha = senha;
 	}
 	
-		// >>> crio classe UserLoginModel 
+		// >>> classe UserLoginModel 
 }

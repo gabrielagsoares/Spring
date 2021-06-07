@@ -44,5 +44,5 @@ public class UserLoginModel {
 
 	private String token;
 	
-		// crio interface UsuarioRepository
+		// >>>>interface UsuarioRepository
 }

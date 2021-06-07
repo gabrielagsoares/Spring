@@ -19,7 +19,12 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository repository;
 	
-	public UsuarioModel CadastrarUsuarioModel (UsuarioModel usuario) {
+	public UsuarioModel CadastrarUsuario (UsuarioModel usuario) {
+		
+		if(repository.findByUsuario(usuario.getUsuario()).isPresent()) {
+			return null;
+		}
+		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 	
 	String senhaEncoder = encoder.encode(usuario.getSenha());
@@ -30,6 +35,7 @@ public class UsuarioService {
 	}
 	
 	public Optional<UserLoginModel> Logar(Optional<UserLoginModel> user){
+		
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		Optional<UsuarioModel> usuario = repository.findByUsuario(user.get().getUsuario());
 		
@@ -42,7 +48,9 @@ public class UsuarioService {
 				
 				user.get().setToken(authHeader);
 				user.get().setNome(usuario.get().getNome());
+				user.get().setSenha(usuario.get().getSenha());
 				return user;
+				
 				
 				
 									
