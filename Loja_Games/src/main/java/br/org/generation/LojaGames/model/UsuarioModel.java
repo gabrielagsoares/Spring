@@ -1,34 +1,34 @@
-package br.org.generation.BlogPessoal.model;
-
-		// depois das anotações em pom.xml crio model usuario com atributos 
+package br.org.generation.LojaGames.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "tb_usuario")
 public class UsuarioModel {
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@NotNull
-	@Size (min = 2)
+	@Size(min = 10, max = 100)
 	private String nome;
-	
+
 	@NotNull
-	@Size (min = 2)
+	private boolean admin;
+
+	@NotNull
+	@Size(min = 2, max = 100)
 	private String usuario;
-	
+
 	@NotNull
-	@Size(min = 2)
+	@Size(min = 6)
 	private String senha;
 
 	public long getId() {
@@ -47,6 +47,14 @@ public class UsuarioModel {
 		this.nome = nome;
 	}
 
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
+
 	public String getUsuario() {
 		return usuario;
 	}
@@ -63,5 +71,4 @@ public class UsuarioModel {
 		this.senha = senha;
 	}
 	
-		// >>> classe UserLoginModel 
 }
